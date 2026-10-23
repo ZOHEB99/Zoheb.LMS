@@ -1,15 +1,14 @@
-import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'CleverCrack | Technical interview readiness',
-  description: 'Guided, role-specific interview roadmaps for Turing, Andela, and Toptal candidates.',
-  keywords: ['technical interview preparation', 'forward deployed engineer', 'AI engineer', 'Turing', 'Andela', 'Toptal'],
+  title: 'Zoheb LMS | Technical Learning & Interview Readiness',
+  description: 'Guided, role-specific learning roadmaps for technical candidates.',
+  keywords: ['technical interview preparation', 'forward deployed engineer', 'AI engineer', 'LMS'],
   openGraph: {
-    title: 'CleverCrack | Technical interview readiness',
-    description: 'Follow every interview round from first screen to final readiness.',
+    title: 'Zoheb LMS | Technical Learning & Interview Readiness',
+    description: 'Follow every learning module from first screen to final readiness.',
     type: 'website',
   },
 }
@@ -22,10 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ClerkProvider>
-          {children}
-          <footer className="site-branding">Built by Zoheb</footer>
-        </ClerkProvider>
+        {children}
+        <footer className="site-branding">Built by Zoheb</footer>
       </body>
     </html>
   )

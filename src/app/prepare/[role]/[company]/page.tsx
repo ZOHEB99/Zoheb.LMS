@@ -1,4 +1,3 @@
-import { auth } from '@clerk/nextjs/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -29,7 +28,7 @@ export async function generateMetadata({ params }: AssessmentPathPageProps): Pro
   const { role: roleParam, company: companyParam } = await params
 
   if (!isRoleId(roleParam) || !isCompanyId(companyParam)) {
-    return { title: 'Interview roadmap | CleverCrack' }
+    return { title: 'Interview roadmap | Zoheb LMS' }
   }
 
   const role = getRole(roleParam)
@@ -37,13 +36,13 @@ export async function generateMetadata({ params }: AssessmentPathPageProps): Pro
 
   return {
     title: role && company
-      ? `${company.name} ${role.title} roadmap | CleverCrack`
-      : 'Interview roadmap | CleverCrack',
+      ? `${company.name} ${role.title} roadmap | Zoheb LMS`
+      : 'Interview roadmap | Zoheb LMS',
   }
 }
 
 export default async function AssessmentPathPage({ params }: AssessmentPathPageProps) {
-  const { userId } = await auth()
+  const userId = 'zoheb'
   const { role: roleParam, company: companyParam } = await params
 
   if (!isRoleId(roleParam) || !isCompanyId(companyParam)) {
@@ -67,7 +66,7 @@ export default async function AssessmentPathPage({ params }: AssessmentPathPageP
       company={company}
       path={path}
       practiceStages={practiceStages}
-      storageOwner={userId ?? 'browser'}
+      storageOwner={userId}
     />
   )
 }

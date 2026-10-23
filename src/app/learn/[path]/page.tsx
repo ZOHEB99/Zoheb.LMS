@@ -1,4 +1,3 @@
-import { auth } from '@clerk/nextjs/server'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -20,13 +19,13 @@ export async function generateMetadata({ params }: LearningPathPageProps): Promi
   const path = isLearningPathId(pathParam) ? getLearningPath(pathParam) : undefined
 
   return {
-    title: path ? `${path.title} learning path | CleverCrack` : 'Learning path | CleverCrack',
+    title: path ? `${path.title} learning path | Zoheb LMS` : 'Learning path | Zoheb LMS',
     description: path?.description,
   }
 }
 
 export default async function LearningPathPage({ params }: LearningPathPageProps) {
-  const { userId } = await auth()
+  const userId = 'zoheb'
   const { path: pathParam } = await params
 
   if (!isLearningPathId(pathParam)) {
@@ -34,9 +33,10 @@ export default async function LearningPathPage({ params }: LearningPathPageProps
   }
 
   const path = getLearningPath(pathParam)
+
   if (!path) {
     notFound()
   }
 
-  return <LearningWorkspace path={path} storageOwner={userId ?? 'browser'} />
+  return <LearningWorkspace path={path} storageOwner={userId} />
 }
