@@ -24,7 +24,7 @@ export default function RootLayout({
       <body>
         <ClerkProvider>
           {children}
-          <footer className="site-branding">Build by Atif shaikh</footer>
+          <footer className="site-branding">Built by Zoheb</footer>
         </ClerkProvider>
       </body>
     </html>
